@@ -258,44 +258,49 @@ int main(int argc, char* argv[])
     for (int i = 1; i < argc; i++) {
         if (argc > i + 1) {
             // here switches with one argument
-            if (! strcmp(argv[i], "-image")) {
+            if (!strcmp(argv[i], "-image")) {
                 image = argv[i + 1];
+                printf("Using Image \"%s\"\n", image.c_str());
                 i++;
             }
-            if (! strcmp(argv[i], "-version")) {
+            if (!strcmp(argv[i], "-version")) {
                 version = argv[i + 1];
+                printf("Using version \"%s\"\n", version.c_str());
                 i++;
             }
-            if (! strcmp(argv[i], "-sign")) {
+            if (!strcmp(argv[i], "-sign")) {
                 printf("Signing feature not supported, yet\n");
                 return -1;
 
                 sign = argv[i + 1];
                 i++;
             }
-            if (! strcmp(argv[i], "-meta")) {
+            if (!strcmp(argv[i], "-meta")) {
                 meta = argv[i + 1];
+                printf("Using meta file \"%s\"\n", meta.c_str());
                 i++;
             }
-            
+
             if (!strcmp(argv[i], "-id")) {
                 appId = std::stoull(argv[i + 1]);
+                printf("Using id %s\n", argv[i + 1]);
                 i++;
             }
-            
-            
+
+
         }
         // here switches with no arguments
-        if (! strcmp(argv[i], "-help")) {
+        if (!strcmp(argv[i], "-help")) {
             printHelp(argv[0]);
             showHelp = false;
         }
-        if (image.size() && version.size() && appId > 0) {
-            showHelp = false;
-            return generateAppFile(image, version, sign, meta, appId);
-        }
-
     }
+    if (image.size() && version.size() && appId > 0) {
+        showHelp = false;
+        return generateAppFile(image, version, sign, meta, appId);
+    }
+
+    
 
     
     if (showHelp)
