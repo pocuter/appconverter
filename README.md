@@ -26,3 +26,6 @@ Author=id Software<br/>
 
 <h3>Getting the image file in Arduino:</h3>
 Go to "Sketch" / "Export compiled binary" and after the Sketch is compiled, you will find the bin file in your Sketch directory.
+
+<h3>APP-ID</h3>
+The App-Id should be an unique ID for your app. Please select a number greater than 100000 to avoid overlapping with official apps. If your app makes it to the app store the number will change.
