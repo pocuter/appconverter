@@ -15,3 +15,10 @@ appconverter.exe
     -id      [APP-ID]
    
     -help
+
+
+Meta file example (it's an ini file):
+
+[APPDATA]<br/>
+Name=DOOM II<br/>
+Author=id Software<br/>
